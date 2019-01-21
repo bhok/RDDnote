@@ -1,3 +1,6 @@
+https://github.com/bhok/RDDnote/blob/master/src/main.h#L77 put at future when pos kick in
+
+
 Reddcoin Core integration/staging tree
 =====================================
 
