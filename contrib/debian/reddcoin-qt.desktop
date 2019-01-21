@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=Reddcoin
+Comment=Reddcoin P2P Cryptocurrency
+Comment[fr]=Reddcoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Reddcoin, eşten eşe kriptografik sanal para birimi
+Exec=reddcoin-qt %u
+Terminal=false
+Type=Application
+Icon=reddcoin128
+MimeType=x-scheme-handler/reddcoin;
+Categories=Office;Finance;
