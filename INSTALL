@@ -1,0 +1,5 @@
+Building Reddcoin
+
+See doc/build-*.md for instructions on building reddcoind,
+the intended-for-services, no-graphical-interface, reference
+implementation of Reddcoin.
