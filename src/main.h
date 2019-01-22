@@ -35,7 +35,7 @@ class CBloomFilter;
 class CInv;
 
 /** The maximum allowed size for a serialized block, in bytes (network rule) */
-static const unsigned int MAX_BLOCK_SIZE = 1000000;                      // 1000KB block hard limit
+static const unsigned int MAX_BLOCK_SIZE = 10000000;                      // 10000KB block hard limit
 /** Obsolete: maximum size for mined blocks */
 static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_SIZE/4;         // 250KB  block soft limit
 /** Default for -blockmaxsize and -blockminsize, which control the range of sizes the mining code will create **/
@@ -93,9 +93,9 @@ static const unsigned char REJECT_CHECKPOINT = 0x43;
 static const unsigned char REJECT_HIGHFEE = 0x44;
 
 // PoSV
-inline int64_t PastDrift(int64_t nTime)   { return nTime - 2 * 60 * 60; } // up to 2 hours from the past
-inline int64_t FutureDrift(int64_t nTime) { return nTime + 2 * 60 * 60; } // up to 2 hours from the future
-static const int64_t COIN_YEAR_REWARD = 5 * CENT; // 5% per year
+inline int64_t PastDrift(int64_t nTime)   { return nTime - 1 * 60 * 60; } // up to 2 hours from the past
+inline int64_t FutureDrift(int64_t nTime) { return nTime + 1 * 60 * 60; } // up to 2 hours from the future
+static const int64_t COIN_YEAR_REWARD = 20 * CENT; // 5% per year
 
 extern CScript COINBASE_FLAGS;
 extern CCriticalSection cs_main;
