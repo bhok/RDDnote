@@ -58,9 +58,9 @@ static const unsigned int BLOCKFILE_CHUNK_SIZE = 0x1000000; // 16 MiB
 /** The pre-allocation chunk size for rev?????.dat files (since 0.8) */
 static const unsigned int UNDOFILE_CHUNK_SIZE = 0x100000; // 1 MiB
 /** Fake height value used in CCoins to signify they are only in the memory pool (since 0.8) */
-static const int64_t DUST_SOFT_LIMIT = 100000000; // 1 RDD
+static const int64_t DUST_SOFT_LIMIT = 1000000; // 0.01 RDD
 /** Dust Hard Limit, ignored as wallet inputs (mininput default) */
-static const int64_t DUST_HARD_LIMIT = 1000000;   // 0.01 RDD mininput
+static const int64_t DUST_HARD_LIMIT = 10000000;   // 0.001 RDD mininput
 /** Coinbase transaction outputs can only be spent after this number of new blocks (network rule) */
 static const int COINBASE_MATURITY = 30;
 /** Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp. */
@@ -93,8 +93,8 @@ static const unsigned char REJECT_CHECKPOINT = 0x43;
 static const unsigned char REJECT_HIGHFEE = 0x44;
 
 // PoSV
-inline int64_t PastDrift(int64_t nTime)   { return nTime - 1 * 60 * 60; } // up to 2 hours from the past
-inline int64_t FutureDrift(int64_t nTime) { return nTime + 1 * 60 * 60; } // up to 2 hours from the future
+inline int64_t PastDrift(int64_t nTime)   { return nTime - 1 * 60 * 60; } // up to 1 hours from the past
+inline int64_t FutureDrift(int64_t nTime) { return nTime + 1 * 60 * 60; } // up to 1 hours from the future
 static const int64_t COIN_YEAR_REWARD = 20 * CENT; // 5% per year
 
 extern CScript COINBASE_FLAGS;
