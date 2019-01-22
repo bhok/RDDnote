@@ -30,18 +30,18 @@ public:
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
         pchMessageStart[0] = 0xfb;
-        pchMessageStart[1] = 0xc0;
+        pchMessageStart[1] = 0xb2;
         pchMessageStart[2] = 0xb6;
-        pchMessageStart[3] = 0xdb;
+        pchMessageStart[3] = 0x02;
         vAlertPubKey = ParseHex("0437b4b0f5d356f205c17ffff6c46dc9ec4680ffb7f8a9a4e6eebcebd5f340d01df00ef304faea7779d97d8f1addbe1e87308ea237aae3ead96e0a736c7e9477a1");
-        nDefaultPort = 45444;
-        nRPCPort = 45443;
+        nDefaultPort = 45450;
+        nRPCPort = 45451;
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 20);
         nSubsidyHalvingInterval = 210000;
 
         // PoSV
         bnProofOfStakeLimit = CBigNum(~uint256(0) >> 20);
-        nLastProofOfWorkHeight = 260800 - 1;
+        nLastProofOfWorkHeight = 10000 - 1;
         nStakeMinAge = 8 * 60 * 60; // 8 hours
         nStakeMaxAge = 45 * 24 *  60 * 60; // 45 days
 
@@ -70,13 +70,18 @@ public:
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0xb868e0d95a3c3c0e0dadc67ee587aaf9dc8acbf99e3b4b3110fad4eb74c1decc"));
         assert(genesis.hashMerkleRoot == uint256("0xb502bc1dc42b07092b9187e92f70e32f9a53247feae16d821bebffa916af79ff"));
-
-        vSeeds.push_back(CDNSSeedData("reddcoin.com", "seed.reddcoin.com"));
-        vSeeds.push_back(CDNSSeedData("dnsseed01.redd.ink", "dnsseed01.redd.ink"));
-        vSeeds.push_back(CDNSSeedData("dnsseed02.redd.ink", "dnsseed02.redd.ink"));
-        vSeeds.push_back(CDNSSeedData("dnsseed03.redd.ink", "dnsseed03.redd.ink"));
-
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,61);
+seed1-vctp.vectorium.co
+seed2-vctp.vectorium.co
+seed3-vctp.vectorium.co
+seed4-vctp.vectorium.co
+seed5-vctp.vectorium.co
+        vSeeds.push_back(CDNSSeedData("seed1-vctp.vectorium.co", "seed1-vctp.vectorium.co"));
+        vSeeds.push_back(CDNSSeedData("seed2-vctp.vectorium.co", "seed2-vctp.vectorium.co"));
+        vSeeds.push_back(CDNSSeedData("seed3-vctp.vectorium.co", "seed3-vctp.vectorium.co"));
+        vSeeds.push_back(CDNSSeedData("seed4-vctp.vectorium.co", "seed4-vctp.vectorium.co"));
+        vSeeds.push_back(CDNSSeedData("seed5-vctp.vectorium.co", "seed5-vctp.vectorium.co"));
+        
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,70);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,189);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
@@ -121,14 +126,14 @@ public:
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
         pchMessageStart[0] = 0xfe;
-        pchMessageStart[1] = 0xc3;
-        pchMessageStart[2] = 0xb9;
+        pchMessageStart[1] = 0x02;
+        pchMessageStart[2] = 0xb3;
         pchMessageStart[3] = 0xde;
         vAlertPubKey = ParseHex("048b75ab041ee9965f6f57ee299395c02daf5105f208fc49e908804aad3ace5a77c7f87b3aae74d6698124f20c3d1bea31c9fcdd350c9c61c0113fd988ecfb5c09");
-        nDefaultPort = 55444;
-        nRPCPort = 55443;
-        strDataDir = "testnet3";
-        nLastProofOfWorkHeight = 350 - 1; // Last POW block
+        nDefaultPort = 55460;
+        nRPCPort = 55461;
+        strDataDir = "testnet";
+        nLastProofOfWorkHeight = 300 - 1; // Last POW block
 
         // Modify the testnet genesis block so the timestamp is valid for a later start.
         // CTransaction txGenesis = genesis.vtx[0];
@@ -140,10 +145,10 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("reddcoin.com", "testnet-seed.reddcoin.com"));
-        vSeeds.push_back(CDNSSeedData("redd.ink", "testnet-dnsseed.redd.ink"));
+        vSeeds.push_back(CDNSSeedData("testnet-vctp.vectorium.co", "testnet-vctp.vectorium.co"));
+        
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,127);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
         base58Prefixes[SECRET_KEY]     = std::vector<unsigned char>(1,239);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
@@ -160,8 +165,8 @@ static CTestNetParams testNetParams;
 class CRegTestParams : public CTestNetParams {
 public:
     CRegTestParams() {
-        pchMessageStart[0] = 0xff;
-        pchMessageStart[1] = 0xc4;
+        pchMessageStart[0] = 0x03;
+        pchMessageStart[1] = 0x04;
         pchMessageStart[2] = 0xba;
         pchMessageStart[3] = 0xdf;
         nSubsidyHalvingInterval = 150;
