@@ -70,11 +70,7 @@ public:
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0xb868e0d95a3c3c0e0dadc67ee587aaf9dc8acbf99e3b4b3110fad4eb74c1decc"));
         assert(genesis.hashMerkleRoot == uint256("0xb502bc1dc42b07092b9187e92f70e32f9a53247feae16d821bebffa916af79ff"));
-seed1-vctp.vectorium.co
-seed2-vctp.vectorium.co
-seed3-vctp.vectorium.co
-seed4-vctp.vectorium.co
-seed5-vctp.vectorium.co
+
         vSeeds.push_back(CDNSSeedData("seed1-vctp.vectorium.co", "seed1-vctp.vectorium.co"));
         vSeeds.push_back(CDNSSeedData("seed2-vctp.vectorium.co", "seed2-vctp.vectorium.co"));
         vSeeds.push_back(CDNSSeedData("seed3-vctp.vectorium.co", "seed3-vctp.vectorium.co"));
