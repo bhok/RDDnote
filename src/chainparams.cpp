@@ -51,14 +51,14 @@ public:
         //     CTxIn(COutPoint(0000000000, -1), coinbase 04ffff001d0104404e592054696d65732030352f4f63742f32303131205374657665204a6f62732c204170706c65e280997320566973696f6e6172792c2044696573206174203536)
         //     CTxOut(nValue=50.00000000, scriptPubKey=040184710fa689ad5023690c80f3a4)
         //   vMerkleTree: 97ddfbbae6
-        const char* pszTimestamp = "January 21st 2014 was such a nice day...";
+        const char* pszTimestamp = "VectoriumPlus - In CryptoEnergy we trust";
         CTransaction txNew(1390280400);
         txNew.nVersion = 1;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = 10000 * COIN;
-        txNew.vout[0].scriptPubKey = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
+        txNew.vout[0].nValue = 10000 * COIN;                
+        txNew.vout[0].scriptPubKey = CScript() << ParseHex("04ac327864472aa6133ea605dcf97a4b2d8f7fe08e24b2e3e202eb9aa405c96bb3afe5c333e7d92e83755e7db65e11b005970a4de07a06ac68ad20203674573297") << OP_CHECKSIG;
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
@@ -68,6 +68,27 @@ public:
         genesis.nNonce   = 222583475;
 
         hashGenesisBlock = genesis.GetHash();
+        
+       
+        if (true  && (genesis.GetHash() != hashGenesisBlock)) {
+		// This will figure out a valid hash and Nonce if you're
+		// creating a different genesis block:
+			uint256 hashTarget = CBigNum().SetCompact(genesis.nBits).getuint256();
+			while (genesis.GetHash() > hashTarget)
+			   {
+				   ++genesis.nNonce;
+				   if (genesis.nNonce == 0)
+				   {
+					   LogPrintf("NONCE WRAPPED, incrementing time");
+					   ++genesis.nTime;
+				   }
+			   }
+        }
+        LogPrintf("block.GetHash() == %s\n", genesis.GetHash().ToString().c_str());
+        LogPrintf("block.hashMerkleRoot == %s\n", genesis.hashMerkleRoot.ToString().c_str());
+        LogPrintf("block.nTime = %u \n", genesis.nTime);
+        LogPrintf("block.nNonce = %u \n", genesis.nNonce);
+       
         assert(hashGenesisBlock == uint256("0xb868e0d95a3c3c0e0dadc67ee587aaf9dc8acbf99e3b4b3110fad4eb74c1decc"));
         assert(genesis.hashMerkleRoot == uint256("0xb502bc1dc42b07092b9187e92f70e32f9a53247feae16d821bebffa916af79ff"));
 
@@ -137,6 +158,26 @@ public:
         // genesis.vtx[0] = txGenesis;
         genesis.nNonce = 2108003;
         hashGenesisBlock = genesis.GetHash();
+        
+                if (true  && (genesis.GetHash() != hashGenesisBlock)) {
+		// This will figure out a valid hash and Nonce if you're
+		// creating a different genesis block:
+			uint256 hashTarget = CBigNum().SetCompact(genesis.nBits).getuint256();
+			while (genesis.GetHash() > hashTarget)
+			   {
+				   ++genesis.nNonce;
+				   if (genesis.nNonce == 0)
+				   {
+					   LogPrintf("NONCE WRAPPED, incrementing time");
+					   ++genesis.nTime;
+				   }
+			   }
+        }
+        LogPrintf("block.GetHash() == %s\n", genesis.GetHash().ToString().c_str());
+        LogPrintf("block.hashMerkleRoot == %s\n", genesis.hashMerkleRoot.ToString().c_str());
+        LogPrintf("block.nTime = %u \n", genesis.nTime);
+        LogPrintf("block.nNonce = %u \n", genesis.nNonce);
+        
         assert(hashGenesisBlock == uint256("0xa12ac9bd4cd26262c53a6277aafc61fe9dfe1e2b05eaa1ca148a5be8b394e35a"));
 
         vFixedSeeds.clear();
