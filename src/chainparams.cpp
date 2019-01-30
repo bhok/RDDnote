@@ -29,9 +29,9 @@ public:
         // The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
-        pchMessageStart[0] = 0xfb;
-        pchMessageStart[1] = 0xb2;
-        pchMessageStart[2] = 0xb6;
+        pchMessageStart[0] = 0xb2;
+        pchMessageStart[1] = 0xc2;
+        pchMessageStart[2] = 0xcf;
         pchMessageStart[3] = 0x02;
         vAlertPubKey = ParseHex("0437b4b0f5d356f205c17ffff6c46dc9ec4680ffb7f8a9a4e6eebcebd5f340d01df00ef304faea7779d97d8f1addbe1e87308ea237aae3ead96e0a736c7e9477a1");
         nDefaultPort = 45450;
@@ -98,9 +98,9 @@ public:
         vSeeds.push_back(CDNSSeedData("seed4-vctp.vectorium.co", "seed4-vctp.vectorium.co"));
         vSeeds.push_back(CDNSSeedData("seed5-vctp.vectorium.co", "seed5-vctp.vectorium.co"));
         
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,70);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,189);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,71);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,33);
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,199);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
@@ -142,8 +142,8 @@ public:
         // The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
-        pchMessageStart[0] = 0xfe;
-        pchMessageStart[1] = 0x02;
+        pchMessageStart[0] = 0x02;
+        pchMessageStart[1] = 0xb3;
         pchMessageStart[2] = 0xb3;
         pchMessageStart[3] = 0xde;
         vAlertPubKey = ParseHex("048b75ab041ee9965f6f57ee299395c02daf5105f208fc49e908804aad3ace5a77c7f87b3aae74d6698124f20c3d1bea31c9fcdd350c9c61c0113fd988ecfb5c09");
@@ -202,10 +202,10 @@ static CTestNetParams testNetParams;
 class CRegTestParams : public CTestNetParams {
 public:
     CRegTestParams() {
-        pchMessageStart[0] = 0x03;
-        pchMessageStart[1] = 0x04;
+        pchMessageStart[0] = 0x04;
+        pchMessageStart[1] = 0x03;
         pchMessageStart[2] = 0xba;
-        pchMessageStart[3] = 0xdf;
+        pchMessageStart[3] = 0xba;
         nSubsidyHalvingInterval = 150;
         bnProofOfWorkLimit = bnProofOfStakeLimit = CBigNum(~uint256(0) >> 1);
         nLastProofOfWorkHeight = 350 - 1;
