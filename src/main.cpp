@@ -1280,7 +1280,7 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees)
 }
 
 static const int64_t nTargetTimespan = 24 * 60 * 60; // 24 hours
-const int64_t nTargetSpacing = 60; // 1 minute
+const int64_t nTargetSpacing = 5 * 60; // 1 minute
 
 //
 // minimum amount of work that could possibly be required nTime after
