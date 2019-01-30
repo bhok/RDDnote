@@ -52,7 +52,7 @@ public:
         //     CTxOut(nValue=50.00000000, scriptPubKey=040184710fa689ad5023690c80f3a4)
         //   vMerkleTree: 97ddfbbae6
         const char* pszTimestamp = "VectoriumPlus - In CryptoEnergy we trust";
-        CTransaction txNew(1390280400);
+        CTransaction txNew(1548861334);
         txNew.nVersion = 1;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -63,7 +63,7 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1390280400;
+        genesis.nTime    = 1548861334;
         genesis.nBits    = 0x1e0ffff0;
         genesis.nNonce   = 222583475;
 
@@ -154,7 +154,7 @@ public:
 
         // Modify the testnet genesis block so the timestamp is valid for a later start.
         // CTransaction txGenesis = genesis.vtx[0];
-        genesis.nTime = 1446002303;
+        genesis.nTime = 1548861300 ;
         // genesis.vtx[0] = txGenesis;
         genesis.nNonce = 2108003;
         hashGenesisBlock = genesis.GetHash();
@@ -209,7 +209,7 @@ public:
         nSubsidyHalvingInterval = 150;
         bnProofOfWorkLimit = bnProofOfStakeLimit = CBigNum(~uint256(0) >> 1);
         nLastProofOfWorkHeight = 350 - 1;
-        genesis.nTime = 1401051600;
+        genesis.nTime = 1548861000 ;
         genesis.nBits = 0x207fffff;
         genesis.nNonce = 3;
         hashGenesisBlock = genesis.GetHash();
