@@ -1437,7 +1437,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     if (TestNet() && chainActive.Tip()->nHeight < Params().LastProofOfWorkHeight())
         return Params().ProofOfWorkLimit().GetCompact();
 
-    static const int64_t BlocksTargetSpacing = 1 * 60; // 1 Minute
+    static const int64_t BlocksTargetSpacing = 1 * 30; // 1/2 Minute
     unsigned int TimeDaySeconds = 60 * 60 * 24;
 
     int64_t PastSecondsMin = TimeDaySeconds * 0.25;
