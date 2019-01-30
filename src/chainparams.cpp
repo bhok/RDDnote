@@ -20,7 +20,7 @@ using namespace boost::assign;
 
 unsigned int pnSeed[] =
 {
-    0xc6c74b0a, 0x6baafdeb, 0xa2f3d1bc, 0xbce287b5, 0xbce287b8, 0x688361e5, 0xb23e116a, 0x80c789bb,
+    0x12345678, 
 };
 
 class CMainParams : public CChainParams {
