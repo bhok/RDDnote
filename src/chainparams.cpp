@@ -67,28 +67,28 @@ public:
         genesis.nBits    = 0x1e0ffff0;
         genesis.nNonce   = 222583475;
 
-        hashGenesisBlock = genesis.GetHash();
-        
-       
-        if (true  && (genesis.GetHash() != hashGenesisBlock)) {
+         //if (true  && (genesis.GetHash() != hashGenesisBlock)) {
 		// This will figure out a valid hash and Nonce if you're
 		// creating a different genesis block:
-			uint256 hashTarget = CBigNum().SetCompact(genesis.nBits).getuint256();
-			while (genesis.GetHash() > hashTarget)
-			   {
-				   ++genesis.nNonce;
-				   if (genesis.nNonce == 0)
-				   {
-					   LogPrintf("NONCE WRAPPED, incrementing time");
-					   ++genesis.nTime;
-				   }
-			   }
-        }
-        LogPrintf("block.GetHash() == %s\n", genesis.GetHash().ToString().c_str());
-        LogPrintf("block.hashMerkleRoot == %s\n", genesis.hashMerkleRoot.ToString().c_str());
-        LogPrintf("block.nTime = %u \n", genesis.nTime);
-        LogPrintf("block.nNonce = %u \n", genesis.nNonce);
+		//	uint256 hashTarget = CBigNum().SetCompact(genesis.nBits).getuint256();
+		//	while (genesis.GetHash() > hashTarget)
+		//	   {
+			//	   ++genesis.nNonce;
+			//	   if (genesis.nNonce == 0)
+			//	   {
+			//		   LogPrintf("NONCE WRAPPED, incrementing time");
+			//		   ++genesis.nTime;
+			//	   }
+			 //  }
+       // }
+       // LogPrintf("block.GetHash() == %s\n", genesis.GetHash().ToString().c_str());
+       // LogPrintf("block.hashMerkleRoot == %s\n", genesis.hashMerkleRoot.ToString().c_str());
+       // LogPrintf("block.nTime = %u \n", genesis.nTime);
+       // LogPrintf("block.nNonce = %u \n", genesis.nNonce);//* 
        
+       
+      
+        hashGenesisBlock = genesis.GetHash();    
         assert(hashGenesisBlock == uint256("0xb868e0d95a3c3c0e0dadc67ee587aaf9dc8acbf99e3b4b3110fad4eb74c1decc"));
         assert(genesis.hashMerkleRoot == uint256("0xb502bc1dc42b07092b9187e92f70e32f9a53247feae16d821bebffa916af79ff"));
 
@@ -157,7 +157,7 @@ public:
         genesis.nTime = 1548861300 ;
         // genesis.vtx[0] = txGenesis;
         genesis.nNonce = 2108003;
-        hashGenesisBlock = genesis.GetHash();
+        
         
                 if (true  && (genesis.GetHash() != hashGenesisBlock)) {
 		// This will figure out a valid hash and Nonce if you're
@@ -178,6 +178,7 @@ public:
         LogPrintf("block.nTime = %u \n", genesis.nTime);
         LogPrintf("block.nNonce = %u \n", genesis.nNonce);
         
+	hashGenesisBlock = genesis.GetHash();    
         assert(hashGenesisBlock == uint256("0x"));
 
         vFixedSeeds.clear();
